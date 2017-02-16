@@ -42,6 +42,7 @@ if (language === 'chinese') {
     window.confirm('A wise choice, Great Buddha. We shall depart for Okinawa immediately.')
     travelTo('Okinawa')
   }
+  // language code = ja
 } else if (language === 'korean') {
   if (randomDestinationNumber > 0.5) {
     window.confirm('A wise choice, Great Buddha. We shall depart for Seoul immediately.')
@@ -50,6 +51,7 @@ if (language === 'chinese') {
     window.confirm('A wise choice, Great Buddha. We shall depart for Busan immediately... But I don\'t really know where that is... the only place in South Korea that I know is Seoul. Let\'s go there instead.')
     travelTo('Seoul')
   }
+  // language code = ko
   // window.confirm('I hear Seoul has a really big StarCraft Brood War scene, and theres an ASL Brood War tournament tonight! Let\'s go Buddha!')
   // var hello = window.prompt('Okay, so the standard greeting in Korean is 안녕, pronounced anyoung. Now say it back to me.')
   // hello = normalize(hello)
