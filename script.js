@@ -41,19 +41,15 @@ if (language === 'mandarin') {
   }
   // window.confirm('I hear Seoul has a really big StarCraft Brood War scene, and theres an ASL Brood War tournament tonight! Let\'s go Buddha!')
   // var hello = window.prompt('Okay, so the standard greeting in Korean is 안녕, pronounced anyoung. Now say it back to me.')
-  // hello = hello || ''
-  // hello.toLowerCase().trim()
+  // hello = normalize(hello)
   // while (hello !== 'anyoung') {
   //   hello = window.prompt('No it is anyoung. ANYOUNG. Say it with me.')
-  //   hello = hello || ''
-  //   hello.toLowerCase().trim()
+  //   hello = normalize(hello)
   // }
   // var me = window.prompt('Me in korean is 나를, or naleul. Try that one')
-  // me = me || ''
-  // me.toLowerCase().trim()
+  // me = normalize(me)
   // var you = window.prompt('You in korean is 당신, or dangsin. Go ahead.')
-  // you = you || ''
-  // you.toLowerCase().trim()
+  // you = normalize(you)
 } else {
   window.confirm('That wasn\'t an option. I\'m sorry, you must not be the Great Buddha. I\'m sorry for the confusion.')
 }
