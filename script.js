@@ -10,12 +10,18 @@ var normalize = function (strToNormalize) {
   return strToNormalize
 }
 
-var language = window.prompt('Namaste, Great Buddha 🙏🛐. Today you must learn either Mandarin, Japanese, or Korean! Which will it be?')
+var googleTranslateElementInit = function (language = 'en') {
+  window.google.translate.TranslateElement({pageLanguage: language}, 'google_translate_element')
+}
+
+var translate = document.getElementById('google_translate_element')
+
+var language = window.prompt('Namaste, Great Buddha 🙏🛐. Today you must learn either Chinese, Japanese, or Korean! Which will it be?')
 language = normalize(language)
 
 var randomDestinationNumber = Math.random()
 
-if (language === 'mandarin') {
+if (language === 'chinese') {
   if (randomDestinationNumber > 0.5) {
     window.confirm('A wise choice, Great Buddha. We shall depart for Shanghai immediately.')
     travelTo('Shanghai')
@@ -23,6 +29,11 @@ if (language === 'mandarin') {
     window.confirm('A wise choice, Great Buddha. We shall depart for Beijing immediately.')
     travelTo('Beijing')
   }
+  var first = window.prompt('What would you like to know in Chinese?')
+  first = normalize(first)
+  translate.textContent = first
+  googleTranslateElementInit('zh-TW')
+  window.prompt('Nice, whats next?')
 } else if (language === 'japanese') {
   if (randomDestinationNumber > 0.01) {
     window.confirm('A wise choice, Great Buddha. We shall depart for Tokyo immediately.')
