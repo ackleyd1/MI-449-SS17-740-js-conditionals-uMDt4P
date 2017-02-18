@@ -6,15 +6,9 @@ var travelTo = function (destination) {
 var normalize = function (strToNormalize) {
   // return the string with no extra whitespace and change case to lower, use more later on
   strToNormalize = strToNormalize || ''
-  strToNormalize.toLowerCase().trim()
+  strToNormalize = strToNormalize.toLowerCase().trim()
   return strToNormalize
 }
-
-var googleTranslateElementInit = function (language = 'en') {
-  window.google.translate.TranslateElement({pageLanguage: language}, 'google_translate_element')
-}
-
-var translate = document.getElementById('google_translate_element')
 
 var language = window.prompt('Namaste, Great Buddha 🙏🛐. Today you must learn either Chinese, Japanese, or Korean! Which will it be?')
 language = normalize(language)
@@ -31,8 +25,6 @@ if (language === 'chinese') {
   }
   var first = window.prompt('What would you like to know in Chinese?')
   first = normalize(first)
-  translate.textContent = first
-  googleTranslateElementInit('zh-TW')
   window.prompt('Nice, whats next?')
 } else if (language === 'japanese') {
   if (randomDestinationNumber > 0.01) {
