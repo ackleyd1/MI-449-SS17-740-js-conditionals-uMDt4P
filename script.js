@@ -1,10 +1,4 @@
-// function to print a very long message with a destination
-var travelTo = function (destination) {
-  window.confirm('"With your mind thus concentrated, purified, and bright, unblemished, free from defects, pliant, malleable, steady, and attained to imperturbability, you direct and incline it to the modes of supranormal powers. You wield manifold supranormal powers. Having been one you become many; having been many you becomes one. You appear. You vanish. You go unimpeded through walls, ramparts, and mountains as if through space. You dive in and out of the earth as if it were water. You walk on water without sinking as if it were dry land. Sitting cross-legged you fly through the air like a winged bird."')
-  window.confirm('We have made it to ' + destination + '!')
-}
-
-// function to normalize input
+// Function to normalize input
 var normalize = function (strToNormalize) {
   // return the string with no extra whitespace and change case to lower, use more later on
   strToNormalize = strToNormalize || ''
@@ -12,107 +6,56 @@ var normalize = function (strToNormalize) {
   return strToNormalize
 }
 
-var randomWords = function (numWords, langCode) {
-  return numWords
+var weeksToLive = function (randomNum) {
+  return Math.ceil(randomNum * 7) + 1
 }
 
-//
-//  Start of the program
-//
-var language = window.prompt('Namaste, Great Buddha 🙏🛐. Today you must learn either Chinese, Japanese, or Korean! Which will it be?')
-language = normalize(language)
+var area = window.prompt('Where are you hurting (head or chest)')
+area = normalize(area)
 
-// generate random number
-var randomDestinationNumber = Math.random()
-
-// Learning Chinese
-if (language === 'chinese') {
-  if (randomDestinationNumber > 0.01) {
-    window.confirm('A wise choice, Great Buddha. We shall depart for Shanghai immediately.')
-    travelTo('Shanghai')
-
-    // How many words to learn
-    var number = window.prompt('How many words would you like to know in Chinese?')
-    number = parseInt(number)
-    if (number > 10) {
-      window.confirm('That\'s too much to learn all at once. Let\'s just try 5.')
-      number = 5
+if (area === 'head') {
+  window.confirm('We\'ll get Dr. Shepherd to come check on you.')
+  var hallucinations = window.confirm('Dr Shepherd: Have you been experiencing hallucinations?')
+  if (hallucinations) {
+    window.confirm('Dr Shepherd: I\'ll run an MRI to get a better look at what\'s going on.')
+    var successPercent = Math.random()
+    var surgery = window.confirm('Dr Shepherd: The MRI shows you have a brain tumor. The success rate is ' + Math.ceil(successPercent * 100) + '%. If we do not operate you will have around ' + weeksToLive(successPercent) + ' weeks to live. Would you like to undergo the surgery?')
+    if (surgery) {
+      window.confirm('Okay we are going to get you prepped for surgery')
+      var success = Math.random()
+      if (successPercent < success) {
+        window.confirm('************ You died in surgery ************')
+      } else {
+        window.confirm('Dr Shepherd: Congrats, the surgery was a success!')
+      }
+    } else {
+      window.confirm('We will have to send you home then. I\'m sorry we couldn\'t do anything more.')
     }
-    // print them out
-    randomWords(number, 'ch')
-    var specificWord = window.prompt('Now that we have that, is there anything specific you would like to know?')
-    specificWord = normalize(specificWord)
-    // print that out
-    var numWord = window.prompt('Finally, lets learn a number in Chinese')
-    numWord = parseInt(numWord)
-    // print it out
-
   } else {
-    window.confirm('A wise choice, Great Buddha. We shall depart for Beijing immediately.')
-    travelTo('Beijing')
-    window.confirm('Hmm, it looks like they are shooting a movie here.')
-    window.confirm('"You instead spend your day learning acting from Jet Li."')
-  }
-
-// Learning Japanese
-} else if (language === 'japanese') {
-  if (randomDestinationNumber > 0.01) {
-    window.confirm('A wise choice, Great Buddha. We shall depart for Tokyo immediately.')
-    travelTo('Tokyo')
-
-    // How many words to learn
-    var number = window.prompt('How many words would you like to know in Japanese?')
-    number = parseInt(number)
-    if (number > 10) {
-      window.confirm('That\'s too much to learn all at once. Let\'s just try 5.')
-      number = 5
+    var memoryLoss = window.confirm('Dr Shepherd: Have you been experiencing memory loss?')
+    if (memoryLoss) {
+      window.confirm('Dr Shepherd: I\'ll run an MRI to get a better look at what\'s going on.')
+      window.confirm('Dr Shepherd: The MRI shows signs of Alzheimers. There is no cure but we can treat it. I can write a prescription to delay the onset of the disease but that is all I can do.')
+    } else {
+      window.confirm('Dr Shepherd: We\'ll run a CT scan to see what we can do.')
+      window.confirm('We couldn\'t see anything on the CT scan so it is nothing serious and we will send you down to the clinic to see Dr. Bailey')
     }
-    // print them out
-    randomWords(number, 'ja')
-    var specificWord = window.prompt('Now that we have that, is there anything specific you would like to know?')
-    specificWord = normalize(specificWord)
-    // print that out
-    var numWord = window.prompt('Finally, lets learn a number in Japanese')
-    numWord = parseInt(numWord)
-    // print it out
-
-  } else {
-    window.confirm('A wise choice, Great Buddha. We shall depart for Okinawa immediately.')
-    travelTo('Okinawa')
-    window.confirm('Hey its Mr. Miyagi from the Karate Kid!')
-    window.confirm('"You instead spend your day learning karate from Mr. Miyagi."')
   }
-
-// Learning Korean
-} else if (language === 'korean') {
-  if (randomDestinationNumber > 0.01) {
-    window.confirm('A wise choice, Great Buddha. We shall depart for Busan immediately.')
-    travelTo('Busan')
-
-    // How many words to learn
-    var number = window.prompt('How many words would you like to know in Korean?')
-    number = parseInt(number)
-    if (number > 10) {
-      window.confirm('That\'s too much to learn all at once. Let\'s just try 5.')
-      number = 5
-    }
-    // print them out
-    randomWords(number, 'ko')
-    var specificWord = window.prompt('Now that we have that, is there anything specific you would like to know?')
-    specificWord = normalize(specificWord)
-    // print that out
-    var numWord = window.prompt('Finally, lets learn a number in Korean')
-    numWord = parseInt(numWord)
-    // print it out
-
+} else if (area === 'chest') {
+  window.confirm('We\'ll get Dr. Burke to come check on you.')
+  var heartProblems = window.prompt('Dr. Burke: How many people in your family have had a history of heart problems?')
+  heartProblems = normalize(heartProblems)
+  heartProblems = parseInt(heartProblems)
+  if (heartProblems > 2) {
+    window.confirm('Dr. Burke: We\'ll run an EKG and figure out what is going on.')
+    window.confirm('Dr. Burke: The EKG shows that you have heart disease. We need to operate heart bypass surgery. There is always a risk associated with surgery but I\'m the best shot you\'ve got.')
+    window.confirm('Dr. Burke: The surgery was a success!')
+  } else if (heartProblems <= 2) {
+    window.confirm('Dr. Burke: You have an irregular heartbeart. I\'m going to give you a pacemaker and that should fix it.')
+    window.confirm('Dr. Burke: That was it! The pacemake is installed and we will need you to check in every year so we can make sure it is still working. If you experience any problems be sure to come back.')
   } else {
-    window.confirm('A wise choice, Great Buddha. We shall depart for Seoul immediately.')
-    travelTo('Seoul')
-    window.confirm('Wow it looks like there is a StarCraft tournament going on!')
-    window.confirm('"You instead spend your day learning StarCraft: Brood War from Jaedong."')
+    window.confirm('Dr. Burke: We will have someone from Psych come down and talk to you.')
   }
-
-// Something other than Chinese, Japanese, or Korean is entered
 } else {
-  window.confirm('That wasn\'t an option. I\'m sorry, you must not be the Great Buddha. I\'m sorry for the confusion.')
+  window.confirm('Because it is not the head or chest we will send you down to the clinic with Dr. Bailey')
 }
